@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050505">
+<title>HAIRIDIN — Official Creator</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#050505;color:#fff;font-family:Inter,Arial,sans-serif}
+a{text-decoration:none;color:inherit}.wrap{width:min(1180px,92%);margin:auto}
+nav{position:fixed;z-index:50;top:0;left:0;right:0;padding:18px 0;background:linear-gradient(#050505d9,transparent);backdrop-filter:blur(8px)}
+.nav{display:flex;justify-content:space-between;align-items:center}.brand{font-weight:950;letter-spacing:4px}.menu{display:flex;gap:25px;color:#aaa;font-size:13px}.menu a:hover{color:white}
+.hero{height:100svh;min-height:650px;position:relative;display:flex;align-items:end;overflow:hidden}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3}.shade{position:absolute;inset:0;background:linear-gradient(90deg,#000d 0%,#0007 45%,#0008),linear-gradient(0deg,#050505 0%,transparent 50%);z-index:-2}
+.heroContent{padding-bottom:90px}.tag{display:inline-block;border:1px solid #ffffff30;border-radius:99px;padding:9px 14px;color:#bbb;font-size:11px;letter-spacing:2px;margin-bottom:18px}
+h1{font-size:clamp(70px,14vw,180px);line-height:.78;letter-spacing:-9px;margin:0;font-weight:1000}.lead{max-width:680px;color:#bbb;font-size:18px;line-height:1.6;margin:28px 0}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{padding:14px 20px;border:1px solid #444;border-radius:12px;font-weight:800;font-size:13px}.btn.main{background:#fff;color:#000;border-color:#fff}.btn:hover{transform:translateY(-3px)}
+section{padding:110px 0}.title{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:38px}.title h2{font-size:48px;letter-spacing:-3px;margin:0}.title p{max-width:440px;color:#777;line-height:1.6}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{padding:28px;background:#0d0d0d;border:1px solid #202020;border-radius:20px}.stat b{font-size:38px;display:block}.stat span{color:#777;font-size:12px}
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:260px;gap:12px}.photo{position:relative;overflow:hidden;border-radius:22px;border:1px solid #242424;background-size:cover;background-position:center;display:flex;align-items:end;padding:20px}.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,#000d)}.photo>*{position:relative;z-index:1}.photo.big{grid-row:span 2}
+.p1{background-image:url("https://images.socialblade.com/256x%2Cq75/https%3A//scontent-lga3-1.xx.fbcdn.net/v/t51.2885-15/462408388_1554875972087311_3622033464210490760_n.jpg")}.p2{filter:saturate(.7);background-image:url("https://images.socialblade.com/256x%2Cq75/https%3A//scontent-lga3-1.xx.fbcdn.net/v/t51.2885-15/462408388_1554875972087311_3622033464210490760_n.jpg")}.p3{filter:contrast(1.15);background-image:url("https://images.socialblade.com/256x%2Cq75/https%3A//scontent-lga3-1.xx.fbcdn.net/v/t51.2885-15/462408388_1554875972087311_3622033464210490760_n.jpg")}.p4{filter:brightness(.8);background-image:url("https://images.socialblade.com/256x%2Cq75/https%3A//scontent-lga3-1.xx.fbcdn.net/v/t51.2885-15/462408388_1554875972087311_3622033464210490760_n.jpg")}
+.photo strong{font-size:19px}.photo small{display:block;color:#aaa;margin-top:5px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{background:#0d0d0d;border:1px solid #202020;border-radius:20px;padding:25px;min-height:190px}.card .num{color:#555;font-size:12px}.card h3{font-size:23px;margin:45px 0 10px}.card p{color:#777;line-height:1.6;font-size:14px}
+.socials{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.social{padding:25px;border-radius:20px;border:1px solid #222;background:#0c0c0c;display:flex;justify-content:space-between;align-items:end;min-height:150px}.social b{font-size:25px}.social small{color:#777;display:block;margin-top:7px}
+.feed{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.embed{background:#fff;border-radius:20px;overflow:hidden;min-height:520px}.side{display:grid;gap:12px}.side .card{min-height:0}
+.business{background:#fff;color:#000;border-radius:28px;padding:55px;display:grid;grid-template-columns:1.1fr .9fr;gap:55px}.business h2{font-size:62px;line-height:.9;letter-spacing:-5px;margin:10px 0}.business p{color:#555;line-height:1.7}.contact{display:grid;gap:10px}.contact a{padding:18px;border:1px solid #ddd;border-radius:12px;font-weight:900}.contact a:hover{background:#000;color:#fff}
+.note{font-size:12px;color:#555;margin-top:14px}.reveal{opacity:0;transform:translateY(25px);transition:.7s}.reveal.on{opacity:1;transform:none}
+footer{padding:35px 0;border-top:1px solid #1b1b1b;color:#555;display:flex;justify-content:space-between;font-size:12px}
+@media(max-width:800px){.menu{display:none}.heroContent{padding-bottom:55px}h1{letter-spacing:-5px}.stats,.cards,.socials,.feed,.business{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:220px}.photo.big{grid-row:span 2}.business{padding:30px}.business h2{font-size:45px}.title{display:block}.title p{margin-top:12px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav"><a class="brand" href="#">HAIRIDIN</a><div class="menu"><a href="#about">ABOUT</a><a href="#gallery">GALLERY</a><a href="#socials">SOCIALS</a><a href="#business">FOR BRANDS</a></div></div></nav>
+
+<header class="hero">
+<video autoplay muted loop playsinline poster="https://images.socialblade.com/256x%2Cq75/https%3A//scontent-lga3-1.xx.fbcdn.net/v/t51.2885-15/462408388_1554875972087311_3622033464210490760_n.jpg"><source src="hairidin_background.mp4" type="video/mp4"></video>
+<div class="shade"></div>
+<div class="wrap heroContent">
+<div class="tag">OFFICIAL CREATOR PAGE • @HAIRIDIN_22</div>
+<h1>HAIRIDIN</h1>
+<p class="lead">Личный бренд, контент и проекты Хайридина — в одном месте. Instagram, YouTube, лучшие публикации и отдельная зона для рекламодателей.</p>
+<div class="actions"><a class="btn main" href="https://www.instagram.com/hairidin_22/" target="_blank">Instagram ↗</a><a class="btn" href="#business">Сотрудничество</a></div>
+</div>
+</header>
+
+<section id="about"><div class="wrap reveal">
+<div class="title"><h2>CREATOR</h2><p>Публичный профиль Хайридина Шамсидинова. Статистика ниже — ориентир и может меняться.</p></div>
+<div class="stats">
+<div class="stat"><b>939K+</b><span>Instagram followers*</span></div>
+<div class="stat"><b>13.2K</b><span>YouTube subscribers*</span></div>
+<div class="stat"><b>1.43M+</b><span>YouTube views*</span></div>
+<div class="stat"><b>9.5%</b><span>Instagram ER*</span></div>
+</div>
+<div class="note">*Показатели взяты из публичной статистики на сентябрь 2026 и со временем меняются.</div>
+</div></section>
+
+<section id="gallery"><div class="wrap reveal">
+<div class="title"><h2>GALLERY</h2><p>Визуальная лента с переходами к оригинальному профилю. Для полноценной медиатеки добавьте оригинальные фото владельца аккаунта.</p></div>
+<div class="gallery">
+<a class="photo big p1" href="https://www.instagram.com/hairidin_22/" target="_blank"><div><strong>ХАЙРИДИН</strong><small>Открыть Instagram ↗</small></div></a>
+<a class="photo p2" href="https://www.instagram.com/hairidin_22/" target="_blank"><div><strong>LIVE</strong><small>Новые публикации</small></div></a>
+<a class="photo p3" href="https://www.instagram.com/hairidin_22/" target="_blank"><div><strong>REELS</strong><small>Смотреть ленту</small></div></a>
+<a class="photo p4" href="https://www.instagram.com/hairidin_22/" target="_blank"><div><strong>PROJECTS</strong><small>Открыть профиль</small></div></a>
+</div>
+</div></section>
+
+<section><div class="wrap reveal">
+<div class="title"><h2>CONTENT</h2><p>Форматы, которые можно показать потенциальным партнёрам.</p></div>
+<div class="cards">
+<div class="card"><span class="num">01</span><h3>Reels</h3><p>Короткие вертикальные ролики с высокой динамикой и сильным первым кадром.</p></div>
+<div class="card"><span class="num">02</span><h3>YouTube</h3><p>Длинный формат, истории, проекты и видео для более глубокого контакта с аудиторией.</p></div>
+<div class="card"><span class="num">03</span><h3>Collabs</h3><p>Совместные съёмки, интеграции и специальные проекты с брендами и авторами.</p></div>
+</div>
+</div></section>
+
+<section id="socials"><div class="wrap reveal">
+<div class="title"><h2>SOCIALS</h2><p>Основные площадки Хайридина.</p></div>
+<div class="socials">
+<a class="social" href="https://www.instagram.com/hairidin_22/" target="_blank"><div><b>Instagram</b><small>@hairidin_22</small></div><strong>↗</strong></a>
+<a class="social" href="https://www.youtube.com/@hairidin_22" target="_blank"><div><b>YouTube</b><small>@hairidin_22</small></div><strong>↗</strong></a>
+<a class="social" href="https://www.tiktok.com/" target="_blank"><div><b>TikTok</b><small>официальная ссылка требует проверки</small></div><strong>↗</strong></a>
+</div>
+</div></section>
+
+<section><div class="wrap reveal">
+<div class="title"><h2>INSTAGRAM POST</h2><p>Реальная публикация @hairidin_22, встроенная прямо в сайт.</p></div>
+<div class="feed">
+<div class="embed">
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DWJYEs8CIqv/" data-instgrm-version="14" style="background:#fff;border:0;margin:0 auto;max-width:540px;width:100%;min-width:326px;padding:0"></blockquote>
+<script async src="https://www.instagram.com/embed.js"></script>
+</div>
+<div class="side">
+<div class="card"><span class="num">REAL POST</span><h3>«Кому еще дать вытянуть карточку?»</h3><p>Публикация от 21 марта 2026. На момент индексации у неё было более 37 тыс. лайков и 1,6 тыс. комментариев.</p><a class="btn" style="display:inline-block;margin-top:18px" href="https://www.instagram.com/p/DWJYEs8CIqv/" target="_blank">Открыть пост ↗</a></div>
+<div class="card"><span class="num">FOLLOW</span><h3>Следить за новыми постами</h3><p>Новые фото и Reels появляются в официальном Instagram.</p></div>
+</div>
+</div>
+</div></section>
+
+<section id="business"><div class="wrap reveal"><div class="business">
+<div><div style="font-size:11px;letter-spacing:3px;font-weight:900">FOR BRANDS & BUSINESS</div><h2>LET'S<br>WORK.</h2><p>Рекламные интеграции, Reels, специальные проекты, съёмки, амбассадорство и креативные коллаборации. Сайт можно использовать как основу медиакита.</p></div>
+<div class="contact">
+<a href="mailto:business@hairidin.com">Запросить сотрудничество →</a>
+<a href="https://www.instagram.com/hairidin_22/" target="_blank">Связаться через Instagram →</a>
+<a href="https://www.youtube.com/@hairidin_22" target="_blank">YouTube →</a>
+</div>
+</div></div></section>
+
+<footer class="wrap"><span>© 2026 HAIRIDIN</span><span>CREATOR • KYRGYZSTAN</span></footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+</script>
+</body>
+</html>
